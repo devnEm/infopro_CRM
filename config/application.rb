@@ -1,5 +1,4 @@
-require File.expand_path('../boot', __FILE__)
-
+require_relative 'boot'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -20,7 +19,10 @@ module InfoproCrm
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components', 'gentelella', 'production')
+    config.generators do |g|
+      # .. other configuration ..
+      g.javascript_engine :js
+    end
   end
 end

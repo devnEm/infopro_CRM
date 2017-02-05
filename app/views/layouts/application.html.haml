@@ -2,14 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title InfoproCrm
+    %title
+      = content_for?(:title) ? yield(:title) : "GentelellaOnRails"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    .container
-      .row
-        .col-md-8.col-md-offset-2
-          .panel.panel-primary
-            .panel-body
-              = yield
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %body.nav-md
+    .container.body
+      - flash.each do |key, value|
+        #flash{:align => "center", :class => "alert alert-#{key}"}= value
+      = render "partials/sidenav"
+      = render "partials/topnav"
+      = yield
+      = render "partials/footer"
+      -# = javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true
