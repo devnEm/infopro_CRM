@@ -34,5 +34,11 @@
 //= require js/pace/pace.min.js
 //= require js/nprogress.js
 
+//DONOT= require_tree .
+
+// APPLICATION-SPECIFIC REQUIREMENTS
+//= require forms/cbox
+//= require ext/bootstrap
+
 // PAGE-SPECIFIC REQUIREMENTS
 //= require flash
